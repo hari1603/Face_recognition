@@ -4,9 +4,12 @@ import os
 cap = cv2.VideoCapture(0)
 skip = 0
 img = 1
-person = input("Enter your name")
-os.mkdir(person)
+person = input("Enter your name: ")
 
+cwd = os.getcwd() 
+os.chdir(cwd + '/data')
+os.mkdir(person)
+os.chdir(cwd)
 
 while True:
     val , frame = cap.read()
