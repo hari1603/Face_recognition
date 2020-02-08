@@ -1,9 +1,12 @@
 import cv2
+import os
 
 cap = cv2.VideoCapture(0)
 skip = 0
 img = 1
 person = input("Enter your name")
+os.mkdir(person)
+
 
 while True:
     val , frame = cap.read()
@@ -17,4 +20,3 @@ while True:
 
 cap.release()
 cv2.destroyAllWindows()
-
