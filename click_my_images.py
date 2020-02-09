@@ -1,14 +1,22 @@
 import cv2
 import os
+import os.path
+from os import path
+import shutil
 
 cap = cv2.VideoCapture(0)
 skip = 0
 img = 1
 person = input("Enter your name: ")
 
-cwd = os.getcwd() 
+cwd = os.getcwd()
 os.chdir(cwd + '/data')
-os.mkdir(person)
+
+if(path.exists(cwd + '/data/' + str(person))):
+    shutil.rmtree(person)
+    os.mkdir(person)
+else:
+    os.mkdir(person)
 os.chdir(cwd)
 
 while True:
